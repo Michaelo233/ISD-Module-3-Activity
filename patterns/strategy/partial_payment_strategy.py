@@ -1,7 +1,7 @@
 """This module defines the PartialPaymentStrategy class."""
 
-__author__ = ""
-__version__ = ""
+__author__ = "Michael Obikwere"
+__version__ = "1.0.0"
 
 from patterns.strategy.payment_strategy import PaymentStrategy
 from billing_account.billing_account import BillingAccount

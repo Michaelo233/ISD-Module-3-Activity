@@ -1,4 +1,26 @@
 """This module defines the PenaltyStrategy class."""
 
-__author__ = ""
-__version__ = ""
+__author__ = "Michael Obikwere"
+__version__ = "1.0.0"
+
+from patterns.strategy.payment_strategy import PaymentStrategy
+from billing_account.billing_account import BillingAccount
+
+class PanaltyStrategy(PaymentStrategy):
+
+    def process_payment(self, account, payee, amount):
+        BillingAccount.deduct_balance(payee, amount)
+        balance = BillingAccount.get_balance(payee, amount)
+
+        if balance <= 0:
+            message = (f"Processed payment of ${amount:,.2f}. "
+                       + f"New balance: ${balance:,.2f}.")
+        else:
+            penalty_charge = 10
+            balance = BillingAccount.get_balance(payee, 
+                            BillingAccount.add_balance(payee, 
+                                                    -(penalty_charge)))
+            message = (f"Insufficient payment. Added penalty fee of "
+                +f"${penalty_charge:.2f}. New balace: ${balance:,.2f}.")
+        
+        return message
