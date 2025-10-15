@@ -9,8 +9,8 @@ from billing_account.billing_account import BillingAccount
 class PartialPaymentStrategy(PaymentStrategy):
 
     def process_payment(self, account, payee, amount):
-        BillingAccount.deduct_balance(payee, amount)
-        balance = BillingAccount.get_balance(payee, amount)
+        account.deduct_balance(payee, amount)
+        balance = account.get_balance(payee)
         if balance <= 0:
             message = (f"Processed payment of ${amount:,.2f}. "
                        + f"New balance: ${balance:,.2f}.")

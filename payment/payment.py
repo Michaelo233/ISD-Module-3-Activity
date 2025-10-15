@@ -7,7 +7,7 @@ from billing_account.billing_account import BillingAccount
 from payee.payee import Payee
 from patterns.strategy.payment_strategy import PaymentStrategy
 
-class PaymentStrategy:
+class Payment:
     def __init__(self, strategy: PaymentStrategy):
         
         if isinstance(strategy, PaymentStrategy):
@@ -18,4 +18,4 @@ class PaymentStrategy:
     def pay_bill(self, account: BillingAccount, payee: Payee, 
                  amount: float):
         
-        return self.__strategy.process_payment(payee, amount)
+        return self.__strategy.process_payment(account, payee, amount)
