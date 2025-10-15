@@ -6,8 +6,10 @@ This activity will help to reinforce learning of the Module 3 concepts of:
 
 ## Author
 
-[Your name]
+Michael Obikwere
 
 ## Additional Information
 
-[ Use this space to include additional information that may help in your learning. ]
+- Design Patterns
+- Behavioral Patterns
+- Debugging Analysis
