@@ -8,8 +8,13 @@ from payee.payee import Payee
 from abc import ABC, abstractmethod
 
 class PaymentStrategy(ABC):
-
+    """
+    Payment Strategy class, to be applied to Payments.
+    """
     @abstractmethod
     def process_payment(self, account: BillingAccount, payee:Payee, amount: float) ->str:
-        
+        """
+        Abstract method.
+        Implemented in subclass(es).
+        """
         pass
